@@ -35,18 +35,35 @@ create table Crew_member
 	license_number int primary key identity(1,1),
 	f_name varchar(20) not null,
 	l_name varchar(20) not null,
-	role varchar(20) not null CHECK (role IN('Pilot', 'Co-Pilot', 'Flight Attendant', 'Engineer'))
+	role varchar(20) not null check (role in('Pilot', 'Co-Pilot', 'Flight Attendant', 'Engineer'))
+)
+
+create table Flight 
+(
+	flight_num int primary key identity(1,1),
+	depature_datetime date,
+	arrival_datetime date,
+	status varchar(20)
 )
 
 create table Booking 
 (
 	booking_id int primary key identity(1,1),
-	seat_number int,
-	class varchar(20),
-	booking_date date,
-	price_paid int,
+	seat_number int not null,
+	class varchar(20) not null check (class in('Economy', 'Bussiness', 'First')),
+	booking_date date default CURRENT_DATE() not null,
+	price_paid int not null check (price_paid > 0),
 	national_id int,
 	flight_num int,
-	
-	
+	constraint fk_book_pass
+		foreign key (national_id) references Passenger(national_id),
+	constraint fk_book_fli
+		foreign key (flight_num) references Flight(flight_num)
 )
+
+create table Flight_crew
+(
+	flight_num int,
+	license_number int
+)
+
