@@ -9,7 +9,7 @@ create table Passenger
 	l_name varchar(20) not null,
 	email varchar(50) unique not null,
 	phone varchar(50),
-	nationality varchar(20) not null,
+	nationality varchar(20) unique not null,
 	DOB date not null
 )
 
@@ -41,9 +41,27 @@ create table Crew_member
 create table Flight 
 (
 	flight_num int primary key identity(1,1),
-	depature_datetime date,
-	arrival_datetime date,
-	status varchar(20)
+	depature_datetime date not null,
+	arrival_datetime date not null,
+	status varchar(20) not null check (status in('Scheduled', 'Delayed', 'Cancelled', 'Completed')) default 'Scheduled',
+	destination_airport int,
+	origin_airport int,
+	reg_num int,
+	constraint timecheck
+		check (arrival_datetime > depature_datetime),
+	-- This one can keep the Cascade
+	constraint fk_fli_destination
+		foreign key (destination_airport) references Airport(IATA)
+		on delete cascade 
+		on update cascade,
+	-- This one MUST be NO ACTION (or SET NULL) to break the cycle
+	constraint fk_fli_origin
+		foreign key (origin_airport) references Airport(IATA)
+		on delete no action on update no action,
+	constraint fk_fli_aircraft
+		foreign key (reg_num) references Aircraft(reg_num)
+		on update cascade
+		on delete cascade,
 )
 
 create table Booking 
@@ -56,14 +74,26 @@ create table Booking
 	national_id int,
 	flight_num int,
 	constraint fk_book_pass
-		foreign key (national_id) references Passenger(national_id),
+		foreign key (national_id) references Passenger(national_id)
+		on delete cascade
+		on update cascade,
 	constraint fk_book_fli
 		foreign key (flight_num) references Flight(flight_num)
+		on update cascade
+		on delete cascade
 )
 
 create table Flight_crew
 (
 	flight_num int,
-	license_number int
+	license_number int,
+	constraint fk_flicrew_fli
+		foreign key (flight_num) references Flight(flight_num)
+		on update cascade
+		on delete cascade,
+	constraint fk_flicrew_crew
+		foreign key (license_number) references Crew_member(license_number)
+		on delete cascade
+		on update cascade
 )
 
