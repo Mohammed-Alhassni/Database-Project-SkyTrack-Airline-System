@@ -30,3 +30,23 @@ create table Aircraft
 	manufacturer_year int 
 )
 
+create table Crew_member 
+(
+	license_number int primary key identity(1,1),
+	f_name varchar(20) not null,
+	l_name varchar(20) not null,
+	role varchar(20) not null CHECK (role IN('Pilot', 'Co-Pilot', 'Flight Attendant', 'Engineer'))
+)
+
+create table Booking 
+(
+	booking_id int primary key identity(1,1),
+	seat_number int,
+	class varchar(20),
+	booking_date date,
+	price_paid int,
+	national_id int,
+	flight_num int,
+	
+	
+)
