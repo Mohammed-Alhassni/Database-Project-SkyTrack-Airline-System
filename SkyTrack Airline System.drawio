@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="9Ez2V5EcepmFkt350dfW">
-    <mxGraphModel dx="1870" dy="1045" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1448" dy="612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -213,7 +213,7 @@
         <mxCell id="-5EN979a6P4eX3SqTBvW-53" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="price_paid" vertex="1">
           <mxGeometry height="40" width="100" x="1170" y="480" as="geometry" />
         </mxCell>
-        <mxCell id="-5EN979a6P4eX3SqTBvW-54" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="&lt;u&gt;booking_date&lt;/u&gt;" vertex="1">
+        <mxCell id="-5EN979a6P4eX3SqTBvW-54" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="booking_date" vertex="1">
           <mxGeometry height="40" width="100" x="1060" y="440" as="geometry" />
         </mxCell>
         <mxCell id="-5EN979a6P4eX3SqTBvW-60" edge="1" parent="1" source="-5EN979a6P4eX3SqTBvW-54" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="-5EN979a6P4eX3SqTBvW-111">
@@ -341,11 +341,17 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="-5EN979a6P4eX3SqTBvW-118" edge="1" parent="1" source="-5EN979a6P4eX3SqTBvW-111" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;" target="-5EN979a6P4eX3SqTBvW-117">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="-5EN979a6P4eX3SqTBvW-111" parent="1" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;" value="Booking" vertex="1">
           <mxGeometry height="40" width="100" x="1180" y="370" as="geometry" />
         </mxCell>
-        <mxCell id="-5EN979a6P4eX3SqTBvW-112" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="&lt;u&gt;seat_number&lt;/u&gt;" vertex="1">
+        <mxCell id="-5EN979a6P4eX3SqTBvW-112" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="seat_number" vertex="1">
           <mxGeometry height="40" width="100" x="1340" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="-5EN979a6P4eX3SqTBvW-117" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" value="booking_id" vertex="1">
+          <mxGeometry height="40" width="100" x="1280" y="290" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
