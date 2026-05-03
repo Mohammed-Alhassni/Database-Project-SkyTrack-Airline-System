@@ -47,6 +47,7 @@ create table Flight
 	destination_airport int,
 	origin_airport int,
 	reg_num int,
+	-- Compare 2 different tables here, else it will cause column level check error
 	constraint timecheck
 		check (arrival_datetime > depature_datetime),
 	-- This one can keep the Cascade
@@ -57,6 +58,7 @@ create table Flight
 	-- This one MUST be NO ACTION (or SET NULL) to break the cycle
 	constraint fk_fli_origin
 		foreign key (origin_airport) references Airport(IATA)
+		--default, because my sql blocks the creation of the second cascading constraint. 
 		on delete no action on update no action,
 	constraint fk_fli_aircraft
 		foreign key (reg_num) references Aircraft(reg_num)
@@ -96,4 +98,3 @@ create table Flight_crew
 		on delete cascade
 		on update cascade
 )
-
