@@ -51,7 +51,7 @@ create table Booking
 	booking_id int primary key identity(1,1),
 	seat_number int not null,
 	class varchar(20) not null check (class in('Economy', 'Bussiness', 'First')),
-	booking_date date default CURRENT_DATE() not null,
+	booking_date date not null default cast(GETDATE() as date),
 	price_paid int not null check (price_paid > 0),
 	national_id int,
 	flight_num int,
