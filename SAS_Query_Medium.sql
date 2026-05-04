@@ -62,4 +62,14 @@ Group by Flight.flight_num, Flight.depature_datetime, Flight.arrival_datetime, F
 Having (count(Booking.flight_num) > 1)
 
 -- 9. Show the full details of all bookings — passenger name, flight number, origin airport, destination airport, class, and price paid.
-
+select * from Booking
+select * from Passenger
+select * from Flight
+select * from Airport
+select Booking.booking_id, Booking.seat_number, Passenger.f_name + ' ' + Passenger.l_name as [full_name],
+	Booking.flight_num, Airport1.name as [origin], Airport2.name as [destination], Booking.class, Booking.price_paid
+	from Booking
+	inner join Passenger on Passenger.national_id = Booking.national_id
+	inner join Flight on Flight.flight_num = Booking.flight_num
+	inner join Airport Airport1 on Flight.origin_airport = Airport1.IATA
+	inner join Airport Airport2 on Flight.destination_airport = Airport2.IATA
