@@ -33,4 +33,8 @@ inner join Airport Airport2 on Flight.destination_airport = Airport2.IATA
 where status in('Delayed', 'Cancelled')
 
 -- 6. Show all passengers whose nationality is 'Omani'. 
+select * from Passenger
+select national_id, f_name + ' ' + l_name as [full_name], email, phone, DOB from Passenger where nationality = 'Omani' -- No omani in the db :(
+
 -- 7. List all airports, ordered by country.
+select * from Airport order by country -- ASC => A to Z
