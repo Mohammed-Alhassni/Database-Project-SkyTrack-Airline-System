@@ -17,6 +17,7 @@ UPDATE Flight SET airline_id = 3, gate_id = 6 WHERE flight_num = 3;
 UPDATE Flight SET airline_id = 4, gate_id = 3 WHERE flight_num = 4;
 UPDATE Flight SET airline_id = 3, gate_id = 7 WHERE flight_num = 5;
 UPDATE Flight SET airline_id = 1, gate_id = 2 WHERE flight_num = 6;
+UPDATE Flight SET airline_id = 3, gate_id = 8 WHERE flight_num = 8;
 
 INSERT INTO Baggage (weight, type, booking_id) VALUES 
 (7, 'Cabin', 1), (23, 'Checked', 1),
