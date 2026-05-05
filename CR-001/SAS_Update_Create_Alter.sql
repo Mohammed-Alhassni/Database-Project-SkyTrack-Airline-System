@@ -65,3 +65,13 @@ alter table Flight
 		on delete set null -- because it can accept null
 					
 
+select * from Aircraft
+select * from Airport
+select * from Booking
+select * from Crew_member
+select * from Flight
+select * from Flight_crew
+select * from Airline
+select * from Gate
+select * from Delay_log
+select * from Baggage
