@@ -14,7 +14,7 @@ select * from Passenger
 select * from Flight
 select Baggage.tag_number, Baggage.weight, Baggage.type, Passenger.f_name + ' ' + Passenger.l_name as [full_name], Flight.flight_num from Booking
 inner join Baggage on Booking.booking_id = Baggage.booking_id
-inner join Flight on Flight.flight_num = Flight.flight_num
+inner join Flight on Flight.flight_num = Booking.flight_num
 inner join Passenger on Passenger.national_id = Booking.national_id
 
 -- 3. Count the total number of baggage items per booking. Show the booking ID, passenger name, and baggage count.
